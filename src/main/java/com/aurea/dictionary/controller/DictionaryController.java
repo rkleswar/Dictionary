@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiOperation;
 
 
 /**
- * The Class consists of User related rest end-points.
+ * The Class consists of Dictionary related rest end-points.
  * 
  * @author KotilingeswararaoR
  *
@@ -26,12 +26,12 @@ public class DictionaryController {
     @Autowired
     private DictionaryService dictionaryService;
  
-    @ApiOperation(value = "Fetch User by userId", 
-			notes = "This service Fetch User by userId", 
+    @ApiOperation(value = "Fetch matching Dictionary words", 
+			notes = "This service matching Dictionary words by given word", 
 			response = String.class
 	)
     @GetMapping("/{word}")
-    public List<String> fetchUserById(@PathVariable String word) {
+    public List<String> fetchSimilarDictionaryWods(@PathVariable String word) {
         return dictionaryService.getSimilarWods(word);
     }
     

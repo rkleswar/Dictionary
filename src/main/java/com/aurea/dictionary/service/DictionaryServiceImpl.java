@@ -17,7 +17,8 @@ public class DictionaryServiceImpl implements DictionaryService {
 	List<String> dictionaryList = Arrays.asList(new String[] { "TOP", "POTA" });
 	Set<String> allPermititaions = null;
 
-	public List<String> getSimilarWods(String word) {
+	public List<String> getSimilarWods(String searchWord) {
+		String word = searchWord.toUpperCase();
 		if (word != null && word.length() > 1) {
 			allPermititaions = new HashSet<>();
 			synchronized (allPermititaions) {
@@ -36,6 +37,7 @@ public class DictionaryServiceImpl implements DictionaryService {
 //				machedWords.add(word);
 //			}
 			for (String dictionaryWord : dictionaryList) {
+				System.out.println(dictionaryWord.indexOf(word));
 				if (dictionaryWord.indexOf(word) == 0) {
 					machedWords.add(dictionaryWord);
 				}
